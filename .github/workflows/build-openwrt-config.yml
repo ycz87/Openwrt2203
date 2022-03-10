@@ -92,5 +92,5 @@ jobs:
     - name: Upload config file
       uses: actions/upload-artifact@main
       with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: OpenWrt_config
         path: openwrt/.config
