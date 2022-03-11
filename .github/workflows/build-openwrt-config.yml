@@ -92,13 +92,12 @@ jobs:
     - name: Copy config file    
       run: |
         mkdir -p ${{ github.workspace }}/artifact
-        echo hello > ${{ github.workspace }}/artifact/world.txt
+        echo Rename config to .config > ${{ github.workspace }}/artifact/readme.txt
         cd openwrt
         cp .config ${{ github.workspace }}/artifact/config
-        cp yczconfig ${{ github.workspace }}/artifact/yczconfig
         
     - name: Upload config file
       uses: actions/upload-artifact@v3
       with:
-        name: OpenWrt_config
+        name: OpenWrt_config_erx
         path: ${{ github.workspace }}/artifact
