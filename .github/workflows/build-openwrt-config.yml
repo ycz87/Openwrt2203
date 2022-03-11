@@ -88,9 +88,16 @@ jobs:
       env:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    
+    - name: Copy config file    
+      run: |
+        cd openwrt
+        mkdir -p path/to/artifact
+        echo hello > path/to/artifact/world.txt
+        cp .config path/to/artifact/config
         
     - name: Upload config file
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v3
       with:
         name: OpenWrt_config
-        path: openwrt/.config
+        path: path/to/artifact/
